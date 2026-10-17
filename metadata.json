@@ -1,0 +1,6 @@
+{
+  "name": "VoxControl",
+  "description": "Offline background voice control assistant to toggle torch, bluetooth, wifi, internet and launch apps even with screen off.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
