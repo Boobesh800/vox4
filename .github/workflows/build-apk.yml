@@ -26,11 +26,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-
-      - name: Accept Android SDK licenses
-        shell: bash
-        run: |
-          yes | sdkmanager --licenses
+        with:
+          packages: ''
 
       - name: Install Android SDK packages
         shell: bash
@@ -57,7 +54,6 @@ jobs:
 
           if [ -z "$SETTINGS" ]; then
             echo "ERROR: Android project settings file not found."
-            echo "Repository files:"
             find . -maxdepth 4 -type f | head -100
             exit 1
           fi
