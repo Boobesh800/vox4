@@ -23,14 +23,16 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Set up Android SDK
+      - name: Install Android SDK command-line tools
         uses: android-actions/setup-android@v3
+        with:
+          packages: |
+            platform-tools
+            platforms;android-36
+            build-tools;36.0.0
 
       - name: Accept Android SDK licenses
         run: yes | sdkmanager --licenses
-
-      - name: Install Android SDK tools
-        run: sdkmanager "platform-tools"
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -61,5 +63,3 @@ jobs:
           path: "**/build/outputs/apk/debug/*.apk"
           if-no-files-found: error
           retention-days: 7
-
-
